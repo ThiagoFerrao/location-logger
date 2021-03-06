@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
 
   spec.source                     = { :git => "https://github.com/ThiagoFerrao/location-logger.git", :tag => "#{spec.version}" }
   spec.source_files               = "LocationLogger/**/*.swift"
-  spec.framework                  = "Foundation"
+  spec.frameworks                 = "Foundation", "CoreLocation"
   spec.dependency                   "Alamofire", "~> 5.4"
   spec.dependency                   "RxCocoa", "~> 6.1"
   spec.dependency                   "RxSwift", "~> 6.1"

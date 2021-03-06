@@ -4,32 +4,33 @@ import RxSwift
 
 protocol Networking {
     func request(with networkRequest: NetworkRequest) -> Single<Void>
+    func request(with networkRequest: NetworkRequest) -> Single<Data>
     func request<T: Decodable>(with networkRequest: NetworkRequest) -> Single<T>
 }
 
 final class Network: Networking {
 
+    static let shared = Network()
     private init() { }
 
-    static let shared = Network()
-
-    private(set) var session: Session = Session.default
-
-    var configuration: URLSessionConfiguration = .default {
-        didSet {
-            session = Session(configuration: configuration, interceptor: interceptor)
-        }
-    }
-
-    var interceptor: RequestInterceptor? = nil {
-        didSet {
-            session = Session(configuration: configuration, interceptor: interceptor)
-        }
-    }
+    private let session: Session = Session.default
 
     func request(with networkRequest: NetworkRequest) -> Single<Void> {
         return session.rx.request(with: networkRequest)
             .map { _ in () }
+    }
+
+    func request(with networkRequest: NetworkRequest) -> Single<Data> {
+        return session.rx.request(with: networkRequest)
+            .map { data in
+                guard let resultData = data else {
+                    throw NetworkError(
+                        afError: .responseSerializationFailed(reason: .inputFileNil),
+                        jsonData: nil
+                    )
+                }
+                return resultData
+            }
     }
 
     func request<T: Decodable>(with networkRequest: NetworkRequest) -> Single<T> {

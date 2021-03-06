@@ -15,6 +15,9 @@
 		903E412325F3D49200D57A3B /* LocationLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903E412225F3D49200D57A3B /* LocationLoggerTests.swift */; };
 		903E413125F3D50200D57A3B /* LocationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903E413025F3D50200D57A3B /* LocationLogger.swift */; };
 		9045989D25F40B6000743707 /* AppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9045989C25F40B6000743707 /* AppChecker.swift */; };
+		9081F05425F416410011FCEC /* CLLocationManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9081F05325F416410011FCEC /* CLLocationManagerExtensions.swift */; };
+		9081F05825F416630011FCEC /* CLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9081F05725F416630011FCEC /* CLLocationManagerDelegateProxy.swift */; };
+		9081F05F25F428580011FCEC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9081F05E25F428580011FCEC /* LocationManager.swift */; };
 		90CEF2C425F406060005D1D3 /* AppScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CEF2C325F406060005D1D3 /* AppScheduler.swift */; };
 		90CEF2C825F406190005D1D3 /* OptionalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CEF2C725F406190005D1D3 /* OptionalExtensions.swift */; };
 		DD0ED4BFB6404434552414C7 /* Pods_LocationLoggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38AC9BC6097440AB79D3C18 /* Pods_LocationLoggerTests.framework */; };
@@ -44,6 +47,9 @@
 		903E412425F3D49200D57A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		903E413025F3D50200D57A3B /* LocationLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationLogger.swift; sourceTree = "<group>"; };
 		9045989C25F40B6000743707 /* AppChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppChecker.swift; sourceTree = "<group>"; };
+		9081F05325F416410011FCEC /* CLLocationManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManagerExtensions.swift; sourceTree = "<group>"; };
+		9081F05725F416630011FCEC /* CLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
+		9081F05E25F428580011FCEC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		90CEF2C325F406060005D1D3 /* AppScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScheduler.swift; sourceTree = "<group>"; };
 		90CEF2C725F406190005D1D3 /* OptionalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtensions.swift; sourceTree = "<group>"; };
 		B38AC9BC6097440AB79D3C18 /* Pods_LocationLoggerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationLoggerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +111,8 @@
 		903E411625F3D49100D57A3B /* LocationLogger */ = {
 			isa = PBXGroup;
 			children = (
-				9045989925F40B2200743707 /* LocationLogger */,
+				9081F05225F4161C0011FCEC /* Location */,
+				9045989925F40B2200743707 /* Logger */,
 				901A310625F401B000B023A4 /* Service */,
 				90CEF2CD25F4079C0005D1D3 /* Supporting Files */,
 				90CEF2BC25F405970005D1D3 /* Util */,
@@ -122,12 +129,22 @@
 			path = LocationLoggerTests;
 			sourceTree = "<group>";
 		};
-		9045989925F40B2200743707 /* LocationLogger */ = {
+		9045989925F40B2200743707 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
 				903E413025F3D50200D57A3B /* LocationLogger.swift */,
 			);
-			path = LocationLogger;
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		9081F05225F4161C0011FCEC /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				9081F05725F416630011FCEC /* CLLocationManagerDelegateProxy.swift */,
+				9081F05325F416410011FCEC /* CLLocationManagerExtensions.swift */,
+				9081F05E25F428580011FCEC /* LocationManager.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		90CEF2BC25F405970005D1D3 /* Util */ = {
@@ -344,8 +361,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				901A310C25F4023800B023A4 /* NetworkError.swift in Sources */,
+				9081F05425F416410011FCEC /* CLLocationManagerExtensions.swift in Sources */,
+				9081F05F25F428580011FCEC /* LocationManager.swift in Sources */,
 				90CEF2C425F406060005D1D3 /* AppScheduler.swift in Sources */,
 				90CEF2C825F406190005D1D3 /* OptionalExtensions.swift in Sources */,
+				9081F05825F416630011FCEC /* CLLocationManagerDelegateProxy.swift in Sources */,
 				9045989D25F40B6000743707 /* AppChecker.swift in Sources */,
 				901A310825F401C200B023A4 /* Network.swift in Sources */,
 				903E413125F3D50200D57A3B /* LocationLogger.swift in Sources */,
