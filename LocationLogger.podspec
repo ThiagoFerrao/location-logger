@@ -9,11 +9,15 @@ Pod::Spec.new do |spec|
 
   spec.source                     = { :git => "https://github.com/ThiagoFerrao/location-logger.git", :tag => "#{spec.version}" }
   spec.source_files               = "LocationLogger/**/*.swift"
+  spec.framework                  = "Foundation"
+  spec.dependency                   "Alamofire", "~> 5.4"
+  spec.dependency                   "RxCocoa", "~> 6.1"
+  spec.dependency                   "RxSwift", "~> 6.1"
 
-  spec.ios.deployment_target      = "9.0"
-  spec.osx.deployment_target      = "10.9"
+  spec.ios.deployment_target      = "10.0"
+  spec.osx.deployment_target      = "10.12"
+  spec.tvos.deployment_target     = "10.0"
   spec.watchos.deployment_target  = "3.0"
-  spec.tvos.deployment_target     = "9.0"
   spec.swift_version              = "5.1"
 
 end

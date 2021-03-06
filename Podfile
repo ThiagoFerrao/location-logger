@@ -1,14 +1,18 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '10.0'
+inhibit_all_warnings!
 
 target 'LocationLogger' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for LocationLogger
+  pod 'Alamofire', '~> 5.4'
+  pod 'RxCocoa', '~> 6.1'
+  pod 'RxSwift', '~> 6.1'
 
   target 'LocationLoggerTests' do
-    # Pods for testing
-  end
+    inherit! :search_paths
 
+    pod 'RxTest', '~> 6.1'
+  end
 end
