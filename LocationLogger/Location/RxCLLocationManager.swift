@@ -6,7 +6,7 @@ import RxCocoa
 extension Reactive where Base: CLLocationManager {
 
     var delegate: DelegateProxy<CLLocationManager, CLLocationManagerDelegate> {
-        return CLLocationManagerDelegateProxy.proxy(for: base)
+        return RxCLLocationManagerDelegateProxy.proxy(for: base)
     }
 
     var didChangeAuthorization: ControlEvent<CLAuthorizationStatus> {

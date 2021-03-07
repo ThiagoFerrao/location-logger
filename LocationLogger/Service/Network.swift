@@ -3,21 +3,16 @@ import Alamofire
 import RxSwift
 
 protocol Networking {
-    func request(with networkRequest: NetworkRequest) -> Single<Void>
     func request(with networkRequest: NetworkRequest) -> Single<Data>
-    func request<T: Decodable>(with networkRequest: NetworkRequest) -> Single<T>
 }
 
 final class Network: Networking {
 
+    private let session: Session
+
     static let shared = Network()
-    private init() { }
-
-    private let session: Session = Session.default
-
-    func request(with networkRequest: NetworkRequest) -> Single<Void> {
-        return session.rx.request(with: networkRequest)
-            .map { _ in () }
+    private init(session: Session = Session.default) {
+        self.session = session
     }
 
     func request(with networkRequest: NetworkRequest) -> Single<Data> {
@@ -30,19 +25,6 @@ final class Network: Networking {
                     )
                 }
                 return resultData
-            }
-    }
-
-    func request<T: Decodable>(with networkRequest: NetworkRequest) -> Single<T> {
-        return session.rx.request(with: networkRequest)
-            .map { data in
-                guard let resultData = data else {
-                    throw NetworkError(
-                        afError: .responseSerializationFailed(reason: .inputFileNil),
-                        jsonData: nil
-                    )
-                }
-                return try JSONDecoder().decode(T.self, from: resultData)
             }
     }
 }

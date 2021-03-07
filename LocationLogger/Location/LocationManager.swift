@@ -1,42 +1,34 @@
 import Foundation
 import CoreLocation
 import RxSwift
-import RxCocoa
 
-typealias LocationResult = Result<CLLocation, CLError>
+protocol LocationManaging {
+    func requestLocation() -> Observable<CLLocation>
+    func requestAuthorization() -> Observable<CLAuthorizationStatus>
+    @available(iOS 14, *)
+    func requestAuthorizationAndAccuracy(purposeKey: String) -> Observable<CLAuthorizationStatus>
+}
 
-final class LocationManager {
+final class LocationManager: LocationManaging {
 
     static let shared = LocationManager()
     private init() { }
 
-    func requestLocation() -> Observable<LocationResult> {
+    func requestLocation() -> Observable<CLLocation> {
         let manager = CLLocationManager()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+
         manager.requestLocation()
 
-        let successObservable: Observable<LocationResult> = manager.rx.didUpdateLocations
-            .map { locations in
-                guard let lastLocation = locations.last else {
-                    return .failure(CLError(.network))
-                }
-                return .success(lastLocation)
-            }
+        let locationObservable: Observable<CLLocation> = manager.rx.didUpdateLocations
+            .map { try $0.last.unwrapOrThrow() }
+            .catch { _ in .error(LocationLoggerError.unknownCLError) }
 
-        let failureObservable: Observable<LocationResult> = manager.rx.didFailWithError
-            .map { error in
-                guard let locationError = error as? CLError else {
-                    return .failure(CLError(.network))
-                }
-                return .failure(locationError)
-            }
+        let errorObservable: Observable<CLLocation> = manager.rx.didFailWithError
+            .filter { !$0.isSkippableCLError }
+            .flatMap { Observable.error($0) }
 
-        return Observable.merge(successObservable, failureObservable)
-            .filter { result in
-                guard case let .failure(locationError) = result, locationError.code == .locationUnknown else {
-                    return true
-                }
-                return false
-            }
+        return Observable.merge(locationObservable, errorObservable)
             .take(1)
     }
 
@@ -51,7 +43,7 @@ final class LocationManager {
                 self.requestAuthorizationIfNeeded(manager: manager, status: status)
             })
             .filter { $0 != .notDetermined }
-            .catchAndReturn(CLLocationManager.authorizationStatus())
+            .flatMap { $0.deniedAuthorizationAsError }
             .take(1)
     }
 
@@ -69,7 +61,7 @@ final class LocationManager {
                 self.requestBetterAccuracyIfNeeded(manager: manager, purposeKey: purposeKey)
             })
             .filter { $0 != .notDetermined }
-            .catchAndReturn(manager.authorizationStatus)
+            .flatMap { $0.deniedAuthorizationAsError }
             .take(1)
     }
 
@@ -89,7 +81,9 @@ final class LocationManager {
     private func requestBetterAccuracyIfNeeded(manager: CLLocationManager, purposeKey: String) {
         switch manager.accuracyAuthorization {
         case .reducedAccuracy:
-            manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: purposeKey)
+            DispatchQueue.main.async {
+                manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: purposeKey)
+            }
 
         default:
             return

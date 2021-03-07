@@ -1,13 +1,12 @@
 import Foundation
 import CoreLocation
-import RxSwift
 import RxCocoa
 
 extension CLLocationManager: HasDelegate {
     public typealias Delegate = CLLocationManagerDelegate
 }
 
-final class CLLocationManagerDelegateProxy:
+final class RxCLLocationManagerDelegateProxy:
 DelegateProxy<CLLocationManager, CLLocationManagerDelegate>,
 CLLocationManagerDelegate, DelegateProxyType {
 
@@ -15,10 +14,10 @@ CLLocationManagerDelegate, DelegateProxyType {
 
     init(locationManager: ParentObject) {
         self.locationManager = locationManager
-        super.init(parentObject: locationManager, delegateProxy: CLLocationManagerDelegateProxy.self)
+        super.init(parentObject: locationManager, delegateProxy: RxCLLocationManagerDelegateProxy.self)
     }
 
     static func registerKnownImplementations() {
-        self.register { CLLocationManagerDelegateProxy(locationManager: $0) }
+        self.register { RxCLLocationManagerDelegateProxy(locationManager: $0) }
     }
 }
