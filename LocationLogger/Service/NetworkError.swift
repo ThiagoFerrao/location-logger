@@ -1,7 +1,7 @@
 import Foundation
 import Alamofire
 
-struct NetworkError: Error {
-    let afError: AFError
-    let jsonData: Data?
+public struct NetworkError: Error {
+    public let afError: AFError
+    public let jsonData: Data?
 }

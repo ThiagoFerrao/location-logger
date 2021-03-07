@@ -18,8 +18,6 @@ final class LocationManager: LocationManaging {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
 
-        manager.requestLocation()
-
         let locationObservable: Observable<CLLocation> = manager.rx.didUpdateLocations
             .map { try $0.last.unwrapOrThrow() }
             .catch { _ in .error(LocationLoggerError.unknownCLError) }
@@ -29,6 +27,7 @@ final class LocationManager: LocationManaging {
             .flatMap { Observable.error($0) }
 
         return Observable.merge(locationObservable, errorObservable)
+            .do(onSubscribe: { manager.requestLocation() })
             .take(1)
     }
 
