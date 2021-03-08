@@ -22,7 +22,7 @@ extension Reactive where Base: LocationLogger {
             .observableSubscriptionConfig()
     }
 
-    func executeLogRequest(with networkRequest: LogNetworkRequest) -> Observable<Data> {
+    func executeLogRequest(with networkRequest: LogNetworkRequest) -> Observable<Data?> {
         return base.network.request(with: networkRequest).asObservable()
             .observableSubscriptionConfig()
     }
@@ -54,7 +54,7 @@ extension Optional where Wrapped: LocationLogger {
     func helperExecuteLogRequest(
         with networkRequest: LogNetworkRequest,
         andUpdate location: CLLocation
-    ) -> Observable<Data> {
+    ) -> Observable<Data?> {
         guard let owner = self else {
             return .error(LocationLoggerError.unknownCLError)
         }

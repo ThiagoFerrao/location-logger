@@ -12,11 +12,16 @@ extension UIViewController {
     }
 }
 
-extension Result where Success == Data {
+extension Result where Success == Data? {
     func descripton() -> String {
         switch self {
-        case let .success(data):
-            return String(decoding: data, as: UTF8.self)
+        case let .success(rawData):
+            guard let data = rawData else {
+                return "Empty data"
+            }
+            var dataString = String(decoding: data, as: UTF8.self)
+            dataString.removeAll(where: \.isWhitespace)
+            return dataString
         case let .failure(error):
             if let neError = error as? NetworkError  {
                 return neError.afError.localizedDescription

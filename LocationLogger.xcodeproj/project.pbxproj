@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		73BF954FC0F0E7481F78837F /* Pods_LocationLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3E391E506348CA31EF2C42D /* Pods_LocationLogger.framework */; };
+		46FAE37E92AF7EDB58C3F789 /* libPods-LocationLogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFACD59551851107EA06AF1D /* libPods-LocationLogger.a */; };
+		4CDB35F168C612E3F6BF46EA /* libPods-LocationLoggerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E53881F5D0C356426C94A6F3 /* libPods-LocationLoggerTests.a */; };
 		901A310825F401C200B023A4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A310725F401C200B023A4 /* Network.swift */; };
 		901A310C25F4023800B023A4 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A310B25F4023800B023A4 /* NetworkError.swift */; };
 		901A311425F4027100B023A4 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A311325F4027100B023A4 /* NetworkRequest.swift */; };
@@ -16,6 +17,7 @@
 		903E412325F3D49200D57A3B /* LocationLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903E412225F3D49200D57A3B /* LocationLoggerTests.swift */; };
 		903E413125F3D50200D57A3B /* LocationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903E413025F3D50200D57A3B /* LocationLogger.swift */; };
 		9045989D25F40B6000743707 /* AppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9045989C25F40B6000743707 /* AppChecker.swift */; };
+		9065CF3325F6F59F000DD4C9 /* EndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065CF3225F6F59F000DD4C9 /* EndToEndTests.swift */; };
 		90706AB425F5465F00CE3FA1 /* CLAuthorizationStatusExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90706AB325F5465F00CE3FA1 /* CLAuthorizationStatusExtensions.swift */; };
 		90706AB825F5468600CE3FA1 /* ErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90706AB725F5468600CE3FA1 /* ErrorExtensions.swift */; };
 		9081F05425F416410011FCEC /* RxCLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9081F05325F416410011FCEC /* RxCLLocationManager.swift */; };
@@ -25,7 +27,9 @@
 		90CEF2C425F406060005D1D3 /* AppScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CEF2C325F406060005D1D3 /* AppScheduler.swift */; };
 		90CEF2C825F406190005D1D3 /* OptionalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CEF2C725F406190005D1D3 /* OptionalExtensions.swift */; };
 		90D19CEF25F5337800A081FE /* LogNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D19CEE25F5337800A081FE /* LogNetworkRequest.swift */; };
-		DD0ED4BFB6404434552414C7 /* Pods_LocationLoggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38AC9BC6097440AB79D3C18 /* Pods_LocationLoggerTests.framework */; };
+		90FB970E25F68235003B0B74 /* TestingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FB970D25F68235003B0B74 /* TestingExtensions.swift */; };
+		90FB971225F6828D003B0B74 /* MockNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FB971125F6828D003B0B74 /* MockNetwork.swift */; };
+		90FB971825F685F8003B0B74 /* MockLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FB971725F685F8003B0B74 /* MockLocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +54,10 @@
 		903E411825F3D49100D57A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "LocationLogger/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
 		903E411D25F3D49200D57A3B /* LocationLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		903E412225F3D49200D57A3B /* LocationLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationLoggerTests.swift; sourceTree = "<group>"; };
-		903E412425F3D49200D57A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		903E412425F3D49200D57A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "LocationLoggerTests/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
 		903E413025F3D50200D57A3B /* LocationLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationLogger.swift; sourceTree = "<group>"; };
 		9045989C25F40B6000743707 /* AppChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppChecker.swift; sourceTree = "<group>"; };
+		9065CF3225F6F59F000DD4C9 /* EndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndToEndTests.swift; sourceTree = "<group>"; };
 		90706AB325F5465F00CE3FA1 /* CLAuthorizationStatusExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAuthorizationStatusExtensions.swift; sourceTree = "<group>"; };
 		90706AB725F5468600CE3FA1 /* ErrorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtensions.swift; sourceTree = "<group>"; };
 		9081F05325F416410011FCEC /* RxCLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationManager.swift; sourceTree = "<group>"; };
@@ -62,8 +67,11 @@
 		90CEF2C325F406060005D1D3 /* AppScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScheduler.swift; sourceTree = "<group>"; };
 		90CEF2C725F406190005D1D3 /* OptionalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtensions.swift; sourceTree = "<group>"; };
 		90D19CEE25F5337800A081FE /* LogNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogNetworkRequest.swift; sourceTree = "<group>"; };
-		B38AC9BC6097440AB79D3C18 /* Pods_LocationLoggerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationLoggerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E391E506348CA31EF2C42D /* Pods_LocationLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90FB970D25F68235003B0B74 /* TestingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingExtensions.swift; sourceTree = "<group>"; };
+		90FB971125F6828D003B0B74 /* MockNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetwork.swift; sourceTree = "<group>"; };
+		90FB971725F685F8003B0B74 /* MockLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManager.swift; sourceTree = "<group>"; };
+		CFACD59551851107EA06AF1D /* libPods-LocationLogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LocationLogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E53881F5D0C356426C94A6F3 /* libPods-LocationLoggerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LocationLoggerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DF61E42BBBF41E3A80B12B /* Pods-LocationLogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationLogger.debug.xcconfig"; path = "Target Support Files/Pods-LocationLogger/Pods-LocationLogger.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73BF954FC0F0E7481F78837F /* Pods_LocationLogger.framework in Frameworks */,
+				46FAE37E92AF7EDB58C3F789 /* libPods-LocationLogger.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				903E411E25F3D49200D57A3B /* LocationLogger.framework in Frameworks */,
-				DD0ED4BFB6404434552414C7 /* Pods_LocationLoggerTests.framework in Frameworks */,
+				4CDB35F168C612E3F6BF46EA /* libPods-LocationLoggerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +141,9 @@
 		903E412125F3D49200D57A3B /* LocationLoggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				903E412225F3D49200D57A3B /* LocationLoggerTests.swift */,
-				903E412425F3D49200D57A3B /* Info.plist */,
+				90FB96FB25F6810E003B0B74 /* Logger */,
+				90FB96FD25F6812C003B0B74 /* Supporting Files */,
+				90FB970225F6818B003B0B74 /* Util */,
 			);
 			path = LocationLoggerTests;
 			sourceTree = "<group>";
@@ -180,11 +189,38 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		90FB96FB25F6810E003B0B74 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				903E412225F3D49200D57A3B /* LocationLoggerTests.swift */,
+				9065CF3225F6F59F000DD4C9 /* EndToEndTests.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		90FB96FD25F6812C003B0B74 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				903E412425F3D49200D57A3B /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90FB970225F6818B003B0B74 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				90FB971725F685F8003B0B74 /* MockLocationManager.swift */,
+				90FB971125F6828D003B0B74 /* MockNetwork.swift */,
+				90FB970D25F68235003B0B74 /* TestingExtensions.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		9219E40953F21D47BB4C1E04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B3E391E506348CA31EF2C42D /* Pods_LocationLogger.framework */,
-				B38AC9BC6097440AB79D3C18 /* Pods_LocationLoggerTests.framework */,
+				CFACD59551851107EA06AF1D /* libPods-LocationLogger.a */,
+				E53881F5D0C356426C94A6F3 /* libPods-LocationLoggerTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -240,7 +276,6 @@
 				903E411925F3D49200D57A3B /* Sources */,
 				903E411A25F3D49200D57A3B /* Frameworks */,
 				903E411B25F3D49200D57A3B /* Resources */,
-				26ECBAA0B3881FC619223800 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,23 +342,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		26ECBAA0B3881FC619223800 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LocationLoggerTests/Pods-LocationLoggerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LocationLoggerTests/Pods-LocationLoggerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LocationLoggerTests/Pods-LocationLoggerTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E02246F42E64C35550E7035C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,7 +415,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90FB970E25F68235003B0B74 /* TestingExtensions.swift in Sources */,
+				90FB971825F685F8003B0B74 /* MockLocationManager.swift in Sources */,
+				90FB971225F6828D003B0B74 /* MockNetwork.swift in Sources */,
 				903E412325F3D49200D57A3B /* LocationLoggerTests.swift in Sources */,
+				9065CF3325F6F59F000DD4C9 /* EndToEndTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +623,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = LocationLoggerTests/Info.plist;
+				INFOPLIST_FILE = "LocationLoggerTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,7 +642,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = LocationLoggerTests/Info.plist;
+				INFOPLIST_FILE = "LocationLoggerTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

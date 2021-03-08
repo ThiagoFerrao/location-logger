@@ -21,7 +21,7 @@ import RxCocoa
 public final class LocationLogger {
 
     public typealias PermissionResult = Result<CLAuthorizationStatus, Error>
-    public typealias RequestResult = Result<Data, Error>
+    public typealias RequestResult = Result<Data?, Error>
 
     /**
      The timeoutInterval value defines the amount of time in seconds that each LocationLogger's functions can
@@ -68,14 +68,7 @@ public final class LocationLogger {
             extraText: extraText
         )
 
-        let authorizationStatus: CLAuthorizationStatus
-        if #available(iOS 14, *) {
-            authorizationStatus = CLLocationManager().authorizationStatus
-        } else {
-            authorizationStatus = CLLocationManager.authorizationStatus()
-        }
-
-        switch authorizationStatus {
+        switch locationManager.authorizationStatus {
         case .notDetermined:
             _ = rx
                 .requestLocationAuthorization()

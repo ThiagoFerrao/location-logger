@@ -6,14 +6,11 @@ PODS:
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
-  - RxTest (6.1.0):
-    - RxSwift (= 6.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - RxCocoa (~> 6.1)
   - RxSwift (~> 6.1)
-  - RxTest (~> 6.1)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -21,15 +18,13 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
-    - RxTest
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
-  RxTest: 9d26616eaff4a7e75f4ecae9b2c24840f2e8218d
 
-PODFILE CHECKSUM: ad7f4aa07e3bcbf4dc7240ef9cba6ad0efc8683d
+PODFILE CHECKSUM: c99de7952bce0d887913ca3980f3a30eef296ecb
 
 COCOAPODS: 1.9.3

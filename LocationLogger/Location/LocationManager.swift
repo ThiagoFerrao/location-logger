@@ -3,6 +3,7 @@ import CoreLocation
 import RxSwift
 
 protocol LocationManaging {
+    var authorizationStatus: CLAuthorizationStatus { get }
     func requestLocation() -> Observable<CLLocation>
     func requestAuthorization() -> Observable<CLAuthorizationStatus>
     @available(iOS 14, *)
@@ -12,7 +13,15 @@ protocol LocationManaging {
 final class LocationManager: LocationManaging {
 
     static let shared = LocationManager()
-    private init() { }
+    internal init() { }
+
+    var authorizationStatus: CLAuthorizationStatus {
+        if #available(iOS 14, *) {
+            return CLLocationManager().authorizationStatus
+        } else {
+            return CLLocationManager.authorizationStatus()
+        }
+    }
 
     func requestLocation() -> Observable<CLLocation> {
         let manager = CLLocationManager()

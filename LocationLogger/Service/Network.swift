@@ -3,7 +3,7 @@ import Alamofire
 import RxSwift
 
 protocol Networking {
-    func request(with networkRequest: NetworkRequest) -> Single<Data>
+    func request(with networkRequest: NetworkRequest) -> Single<Data?>
 }
 
 final class Network: Networking {
@@ -11,21 +11,12 @@ final class Network: Networking {
     private let session: Session
 
     static let shared = Network()
-    private init(session: Session = Session.default) {
+    internal init(session: Session = Session.default) {
         self.session = session
     }
 
-    func request(with networkRequest: NetworkRequest) -> Single<Data> {
+    func request(with networkRequest: NetworkRequest) -> Single<Data?> {
         return session.rx.request(with: networkRequest)
-            .map { data in
-                guard let resultData = data else {
-                    throw NetworkError(
-                        afError: .responseSerializationFailed(reason: .inputFileNil),
-                        jsonData: nil
-                    )
-                }
-                return resultData
-            }
     }
 }
 
