@@ -12,26 +12,23 @@ PODS:
   - RxSwift (6.1.0)
 
 DEPENDENCIES:
-  - LocationLogger (from `..`)
+  - LocationLogger
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - LocationLogger
     - RxCocoa
     - RxRelay
     - RxSwift
 
-EXTERNAL SOURCES:
-  LocationLogger:
-    :path: ".."
-
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  LocationLogger: 5791a97476cb1e1712dc706d982952b12696a516
+  LocationLogger: 9f767a113a18d162ff7dbf648d66a4cbd55a6d34
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
 
-PODFILE CHECKSUM: 094d5be7a6c668b8ee432d4646dd1dc522b2a69c
+PODFILE CHECKSUM: db823c6e70cfbe49893c2ad9becc4d32d229e0e8
 
 COCOAPODS: 1.9.3

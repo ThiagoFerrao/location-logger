@@ -6,5 +6,5 @@ inhibit_all_warnings!
 target 'LocationLoggerExample' do
   use_frameworks!
 
-  pod 'LocationLogger', :path => '..'
+  pod 'LocationLogger'
 end

@@ -85,17 +85,25 @@ class LocationLoggerViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        executeAuthorizationAndAccuracyButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.locationLogger.requestLocationAuthorizationAndAccuracy(
-                    purposeKey: "HighAccuracyLocationRequest",
-                    callback: { data in
-                        let title = "Authorization Executed"
-                        let message = data.descripton()
-                        self?.presentAlert(with: title, and: message)
-                    }
-                )
-            })
-            .disposed(by: disposeBag)
+        if #available(iOS 14, *) {
+            executeAuthorizationAndAccuracyButton.rx.tap
+                .subscribe(onNext: { [weak self] _ in
+                    self?.locationLogger.requestLocationAuthorizationAndAccuracy(
+                        purposeKey: "HighAccuracyLocationRequest",
+                        callback: { data in
+                            let title = "Authorization Executed"
+                            let message = data.descripton()
+                            self?.presentAlert(with: title, and: message)
+                        }
+                    )
+                })
+                .disposed(by: disposeBag)
+        } else {
+            executeAuthorizationAndAccuracyButton.rx.tap
+                .subscribe(onNext: { [weak self] _ in
+                    self?.presentAlert(with: "Authorization only available in iOS14+", and: nil)
+                })
+                .disposed(by: disposeBag)
+        }
     }
 }

@@ -10,7 +10,6 @@
 		1FD9B1717BCC052433B47526 /* Pods_LocationLoggerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 165734062469BEAE3495C252 /* Pods_LocationLoggerExample.framework */; };
 		9009725C25F566E100336BED /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9009725B25F566E100336BED /* Util.swift */; };
 		90258FE925F55568006784F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90258FE825F55568006784F6 /* AppDelegate.swift */; };
-		90258FEB25F55568006784F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90258FEA25F55568006784F6 /* SceneDelegate.swift */; };
 		90258FED25F55568006784F6 /* LocationLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90258FEC25F55568006784F6 /* LocationLoggerViewController.swift */; };
 		90258FF225F55568006784F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90258FF125F55568006784F6 /* Assets.xcassets */; };
 		90258FF525F55568006784F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90258FF325F55568006784F6 /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 		9009725B25F566E100336BED /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		90258FE525F55568006784F6 /* LocationLoggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationLoggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90258FE825F55568006784F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		90258FEA25F55568006784F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		90258FEC25F55568006784F6 /* LocationLoggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationLoggerViewController.swift; sourceTree = "<group>"; };
 		90258FF125F55568006784F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90258FF425F55568006784F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				90258FE825F55568006784F6 /* AppDelegate.swift */,
-				90258FEA25F55568006784F6 /* SceneDelegate.swift */,
 				90258FEC25F55568006784F6 /* LocationLoggerViewController.swift */,
 				9009725B25F566E100336BED /* Util.swift */,
 				90258FF125F55568006784F6 /* Assets.xcassets */,
@@ -206,7 +203,6 @@
 			files = (
 				90258FED25F55568006784F6 /* LocationLoggerViewController.swift in Sources */,
 				90258FE925F55568006784F6 /* AppDelegate.swift in Sources */,
-				90258FEB25F55568006784F6 /* SceneDelegate.swift in Sources */,
 				9009725C25F566E100336BED /* Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -331,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

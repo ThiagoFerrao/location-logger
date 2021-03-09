@@ -3,7 +3,7 @@ import CoreLocation
 import LocationLogger
 
 extension UIViewController {
-    func presentAlert(with title: String, and message: String) {
+    func presentAlert(with title: String?, and message: String?) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
